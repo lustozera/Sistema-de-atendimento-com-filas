@@ -234,7 +234,7 @@ function imprimirSenha() {
     </head>
     <body>
     <div class="ticket">
-      <img src="/Gemini_Generated_Image_b6tbx8b6tbx8b6tb.png" alt="Logo" class="logo">
+      <img src="/logo_senha.png" alt="Logo" class="logo">
       <div class="titulo">Senha de Atendimento</div>
       <div class="linha"></div>
       <div class="numero">${dados.numero}</div>
