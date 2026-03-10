@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Público - Fila de Atendimento</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="painel.css">
+</head>
+<body>
+  <div class="container-painel">
+    <!-- Painel Principal -->
+    <main class="painel-grid">
+      <!-- Lado Esquerdo - Senha Atual -->
+      <div class="painel-secao-senha">
+        <div class="senha-chamada-container">
+          <div class="label-senha">SENHA CHAMADA</div>
+          <div class="display-gigante" id="display-gigante">
+            <span id="numero-gigante">--</span>
+          </div>
+          <div class="info-mesa" id="info-mesa">
+            <span>MESA/GUICHÊ: <strong id="numero-mesa">--</strong></span>
+          </div>
+        </div>
+
+        <!-- Histórico de senhas -->
+        <div class="historico-painel">
+          <h2>ÚLTIMAS SENHAS CHAMADAS</h2>
+          <div class="historico-painel-lista" id="historico-painel">
+            <div class="item-historico vazio">
+              <span>Aguardando primeira senha...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lado Direito - Imagem em Tela Cheia -->
+      <aside class="painel-lateral painel-imagem-container">
+        <img src="/img_painel.png" alt="Painel de Informações" class="painel-imagem-full">
+      </aside>
+    </main>
+  </div>
+
+  <script src="socket.io/socket.io.js"></script>
+  <script src="painel.js"></script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+/* ============ USUARIO PAGE STYLES ============ */
+
+.botoes-setor {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.btn-setor {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 40%, #0f766e 100%);
+  padding: 48px 28px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #f9fafb;
+  transition: var(--transicao);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.3);
+}
+
+.btn-setor:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 22px 40px rgba(15, 23, 42, 0.45);
+  filter: brightness(1.05);
+}
+
+.btn-setor:active {
+  transform: translateY(-2px);
+}
+
+.btn-setor:focus {
+  outline: 3px solid rgba(248, 250, 252, 0.9);
+  outline-offset: 3px;
+}
+
+.btn-setor:nth-child(1) {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e293b 100%);
+}
+
+.btn-setor:nth-child(2) {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #1e293b 100%);
+}
+
+.btn-setor:nth-child(3) {
+  background: linear-gradient(135deg, #059669 0%, #047857 50%, #1e293b 100%);
+}
+
+.btn-setor:nth-child(4) {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #1e293b 100%);
+}
+
+.btn-setor .icon {
+  font-size: 4rem;
+  display: block;
+}
+
+.btn-setor span:last-child {
+  font-size: 2rem;
+  line-height: 1.5;
+  text-shadow: 0 2px 4px rgba(15, 23, 42, 0.6);
+}
+
+/* ============ TIPO ATENDIMENTO ============ */
+
+.tipo-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.btn-tipo {
+  background-color: var(--cor-fundo-card);
+  padding: 32px 24px;
+  border: 3px solid var(--cor-borda);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: var(--transicao);
+  text-align: center;
+}
+
+.btn-tipo h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: var(--cor-texto-primario);
+}
+
+.btn-tipo p {
+  font-size: 1rem;
+  color: var(--cor-texto-secundario);
+}
+
+.btn-tipo-normal:hover {
+  border-color: var(--cor-primaria);
+  background-color: var(--cor-primaria-clara);
+  box-shadow: var(--sombra-media);
+  transform: scale(1.02);
+}
+
+.btn-tipo-preferencial:hover {
+  border-color: var(--cor-alerta);
+  background-color: #fffbeb;
+  box-shadow: var(--sombra-media);
+  transform: scale(1.02);
+}
+
+/* ============ SENHA DISPLAY ============ */
+
+.senha-display-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
+  align-items: center;
+}
+
+.senha-card {
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria-escura) 100%);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: var(--sombra-pesada);
+  color: white;
+  text-align: center;
+}
+
+.senha-grande {
+  font-size: 5rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  letter-spacing: 4px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.senha-info {
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+  padding-top: 20px;
+}
+
+.senha-info p {
+  font-size: 1.1rem;
+  margin: 8px 0;
+}
+
+.setor-info,
+.tipo-info {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.fila-info {
+  background-color: var(--cor-fundo-card);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: var(--sombra-media);
+}
+
+.fila-info p:first-child {
+  font-size: 1.1rem;
+  color: var(--cor-texto-secundario);
+  margin-bottom: 16px;
+}
+
+.posicao-badge {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--cor-primaria);
+  margin: 16px 0;
+}
+
+.mensagem-aguarde {
+  font-size: 1.2rem;
+  color: var(--cor-texto-primario);
+  font-weight: 600;
+  margin-top: 16px;
+}
+
+.acoes-senha {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.acoes-senha .btn {
+  padding: 18px;
+  font-size: 1.1rem;
+}
+
+.btn-voltar-tipo {
+  margin-top: 8px;
+  width: 100%;
+}
+
+/* ============ RESPONSIVE - USUARIO ============ */
+
+@media (max-width: 1024px) {
+  .botoes-setor {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .senha-display-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .botoes-setor {
+    grid-template-columns: 1fr;
+  }
+
+  .tipo-container {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-setor {
+    padding: 32px 20px;
+  }
+
+  .btn-tipo {
+    padding: 32px 20px;
+  }
+
+  .senha-grande {
+    font-size: 3.5rem;
+  }
+
+  .posicao-badge {
+    font-size: 2.5rem;
+  }
+
+  .acoes-senha {
+    grid-template-columns: 1fr;
+  }
+
+  .senha-card {
+    padding: 32px;
+  }
+
+  .fila-info {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-setor {
+    padding: 24px 16px;
+    gap: 12px;
+  }
+
+  .btn-setor .icon {
+    font-size: 2rem;
+  }
+
+  .btn-setor span:last-child {
+    font-size: 0.95rem;
+  }
+
+  .btn-tipo h3 {
+    font-size: 1.2rem;
+  }
+
+  .btn-tipo p {
+    font-size: 0.9rem;
+  }
+
+  .senha-grande {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+
+  .posicao-badge {
+    font-size: 1.8rem;
+  }
+
+  .senha-card {
+    padding: 24px;
+  }
+
+  .fila-info {
+    padding: 16px;
+  }
+
+  .fila-info p:first-child {
+    font-size: 1rem;
+  }
+
+  .mensagem-aguarde {
+    font-size: 1rem;
+  }
+}
