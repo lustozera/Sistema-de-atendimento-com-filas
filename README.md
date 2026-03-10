@@ -213,6 +213,6 @@ Para dúvidas ou problemas, verifique:
 2. Se a porta 3000 está disponível
 3. Se o Node.js está atualizado
 
----
 
-**Desenvolvido com ❤️**
+
+
