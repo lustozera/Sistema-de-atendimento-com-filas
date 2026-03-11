@@ -89,7 +89,7 @@ O servidor estará disponível em `http://localhost:3000`
 
 ## 🔒 Segurança
 
-A senha administrativa padrão é: **`AGR.Senhas`**
+A senha administrativa padrão é: **`SUA SENHA`**
 
 ⚠️ **Altere esta senha em produção!**
 
@@ -208,6 +208,7 @@ Para dúvidas ou problemas, verifique:
 3. Se o Node.js está atualizado
 
 ---
+
 
 
 
