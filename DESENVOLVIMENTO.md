@@ -116,7 +116,7 @@ Breakpoints utilizados:
 ### Pontos de Atenção:
 
 1. **Senha Admin**: Está hardcoded em `server.js`
-   - Localize: `if (senha !== 'AGR.Senhas')`
+   - Localize: `if (senha !== 'SUA SENHA')`
    - Mude para seu ambiente de produção
 
 2. **CORS**: Está aberto para qualquer origem
@@ -258,3 +258,4 @@ Para dúvidas:
 ---
 
 **Happy coding! 🚀**
+
