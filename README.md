@@ -161,7 +161,7 @@ O sistema é totalmente responsivo:
 O sistema emite sons em:
 - **Usuário**: Confirmação ao gerar senha
 - **Atendente**: Sinal ao chamar nova senha
-- **Painel**: Notificação ao exibir nova senha
+- **Painel**: Notificação ao exibir nova senha, e fala a senha chamada
 
 Todos os sons são gerados via Web Audio API.
 
@@ -214,6 +214,7 @@ Para dúvidas ou problemas, verifique:
 3. Se o Node.js está atualizado
 
 ---
+
 
 
 
