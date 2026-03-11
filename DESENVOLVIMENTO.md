@@ -76,7 +76,7 @@ Returns: { numero, setor, mesa }
 ### Resetar Senhas
 ```
 POST /api/resetar-senhas
-Body: { senha: 'AGR.Senhas' }
+Body: { senha: 'SUA SENHA' }
 ```
 
 ### Histórico
@@ -258,4 +258,5 @@ Para dúvidas:
 ---
 
 **Happy coding! 🚀**
+
 
