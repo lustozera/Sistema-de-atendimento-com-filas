@@ -129,8 +129,25 @@ body {
 }
 
 .btn-primario {
-  background-color: var(--cor-primaria);
+  display: flex;
+  align-items: center;      /* centraliza vertical */
+  justify-content: center;  /* centraliza horizontal */
+
+  height: 64px;
+  padding: 0 20px;
+
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
   color: white;
+  border-radius: 12px;
+  text-decoration: none;
+
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+
+  box-sizing: border-box;
 }
 
 .btn-primario:hover {

@@ -106,6 +106,15 @@ function mostrarEtapa(etapaId) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// ============ Loading Impressão ============
+
+function mostrarLoadingImpressao() {
+  const loading = document.getElementById("loading-impressao");
+  if (loading) {
+    loading.classList.remove("hidden");
+  }
+}
+
 // ============ IMPRIMIR SENHA ============
 
 function imprimirSenha() {
@@ -116,150 +125,157 @@ function imprimirSenha() {
     return;
   }
 
-  const janela = window.open('', '_blank');
-  
-  janela.document.write(`
-    <!DOCTYPE html>
-    <html lang="pt-BR">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Senha</title>
-      <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+  mostrarLoadingImpressao();
+
+  setTimeout(() => {
+    const janela = window.open('', '_blank');
+
+    if (!janela) {
+      mostraAlerta("Permita popups para imprimir.");
+      return;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #fff;
-      width: 58mm;
-      margin: 0 auto;
-      padding: 0;
-    }
+    janela.document.write(`
+      <!DOCTYPE html>
+      <html lang="pt-BR">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Senha</title>
+        <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
 
-    .ticket {
-      width: 58mm;
-      padding: 4mm 3mm;
-      text-align: center;
-      color: #000;
-    }
+          body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            width: 58mm;
+            margin: 0 auto;
+            padding: 0;
+          }
 
-    .logo {
-      width: 95px;
-      height: 95px;
-      margin: 0 auto 8px;
-      display: block;
-    }
+          .ticket {
+            width: 58mm;
+            padding: 4mm 3mm;
+            text-align: center;
+            color: #000;
+          }
 
-    .empresa {
-      font-size: 11px;
-      font-weight: bold;
-      margin-bottom: 4px;
-    }
+          .logo {
+            width: 95px;
+            height: 95px;
+            margin: 0 auto 8px;
+            display: block;
+          }
 
-    .titulo {
-      font-size: 12px;
-      font-weight: bold;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
+          .titulo {
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+          }
 
-    .numero {
-      font-size: 54px;
-      font-weight: bold;
-      line-height: 1;
-      margin: 8px 0 12px;
-      letter-spacing: 2px;
-    }
+          .numero {
+            font-size: 54px;
+            font-weight: bold;
+            line-height: 1;
+            margin: 8px 0 12px;
+            letter-spacing: 2px;
+          }
 
-    .linha {
-      border-top: 1px dashed #000;
-      margin: 8px 0;
-    }
+          .linha {
+            border-top: 1px dashed #000;
+            margin: 8px 0;
+          }
 
-    .info {
-      font-size: 12px;
-      text-align: left;
-      margin-top: 6px;
-      text-align: center;
-    }
+          .info {
+            font-size: 12px;
+            margin-top: 6px;
+            text-align: center;
+          }
 
-    .info p {
-      margin: 4px 0;
-      word-break: break-word;
-    }
+          .info p {
+            margin: 4px 0;
+            word-break: break-word;
+          }
 
-    .label {
-      font-weight: bold;
+          .label {
+            font-weight: bold;
+          }
 
-    }
+          .aviso {
+            margin-top: 8px;
+            font-size: 11px;
+            font-weight: bold;
+          }
 
-    .rodape {
-      margin-top: 10px;
-      font-size: 10px;
-      text-align: center;
-    }
+          @page {
+            size: 58mm auto;
+            margin: 0;
+          }
 
-    .aviso {
-      margin-top: 8px;
-      font-size: 11px;
-      font-weight: bold;
-    }
+          @media print {
+            html, body {
+              width: 58mm;
+              background: #fff;
+            }
 
-    @page {
-      size: 58mm auto;
-      margin: 0;
-    }
+            body {
+              margin: 0;
+              padding: 0;
+            }
 
-    @media print {
-      html, body {
-        width: 58mm;
-        background: #fff;
-      }
+            .ticket {
+              width: 58mm;
+              padding: 4mm 3mm;
+            }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="ticket">
+          <img src="/images/logo_senha.png" alt="Logo" class="logo">
+          <div class="titulo">Senha de Atendimento</div>
+          <div class="linha"></div>
+          <div class="numero">${dados.numero}</div>
+          <div class="linha"></div>
+          <div class="info">
+            <p><span class="label">Setor:</span> ${dados.setor}</p>
+            <p><span class="label">Tipo:</span> ${dados.tipo}</p>
+            <p><span class="label">Gerada:</span> ${dados.data}</p>
+          </div>
+          <div class="aviso">AGUARDE SER CHAMADO</div>
+        </div>
 
-      body {
-        margin: 0;
-        padding: 0;
-      }
+        <script>
+          let jaExecutou = false;
 
-      .ticket {
-        width: 58mm;
-        padding: 4mm 3mm;
-      }
-    }
-  </style>
-    </head>
-    <body>
-    <div class="ticket">
-      <img src="/images/logo_senha.png" alt="Logo" class="logo">
-      <div class="titulo">Senha de Atendimento</div>
-      <div class="linha"></div>
-      <div class="numero">${dados.numero}</div>
-      <div class="linha"></div>
-      <div class="info">
-        <p><span class="label">Setor:</span> ${dados.setor}</p>
-        <p><span class="label">Tipo:</span> ${dados.tipo}</p>
-        <p><span class="label">Gerada:</span> ${dados.data}</p>
-      </div>
-      <div class="aviso">AGUARDE SER CHAMADO</div>
+          window.onload = function() {
+            window.focus();
+            window.print();
+          };
 
-    </div>
-    
-      <script>
-      window.onload = function() {
-        window.print();
-      }
-      </script>
-    </body>
-    </html>
-  `);
-  
-  janela.document.close();
+          window.addEventListener("focus", function () {
+            if (jaExecutou) return;
+            jaExecutou = true;
+
+            if (window.opener) {
+              window.opener.location.href = "/usuario";
+            }
+
+            window.close();
+          });
+        <\/script>
+      </body>
+      </html>
+    `);
+
+    janela.document.close();
+  }, 1200);
 }
-
 // ============ NOVA SENHA ============
 
 function novarSenha() {
