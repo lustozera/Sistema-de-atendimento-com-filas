@@ -116,7 +116,7 @@ Verificar gerenciamento e reset
    - Digite SENHA ERRADA: "123"
    - Clique "Resetar Senhas"
    - Veja mensagem de erro
-5. Digite SENHA CORRETA: "AGR.Senhas"
+5. Digite SENHA CORRETA: "SUA SENHA"
 6. Clique "Resetar Senhas"
 7. Confirme no diálogo
 8. Verifique que senhas foram apagadas
@@ -323,3 +323,4 @@ Se houver erros:
 ---
 
 **Bom teste! 🚀**
+
