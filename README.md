@@ -200,12 +200,6 @@ PORT=3001 npm start
 
 ---
 
-## 📝 Licença
-
-Este projeto é de código aberto e pode ser usado livremente.
-
----
-
 ## 👨‍💼 Suporte
 
 Para dúvidas ou problemas, verifique:
@@ -214,6 +208,7 @@ Para dúvidas ou problemas, verifique:
 3. Se o Node.js está atualizado
 
 ---
+
 
 
 
