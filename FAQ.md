@@ -37,7 +37,7 @@ $env:PORT=3001; npm start
 ### P: Como mudo a senha do admin?
 **R:** Edite `server.js`, linha com:
 ```javascript
-if (senha !== 'AGR.Senhas')
+if (senha !== 'SUA SENHA')
 ```
 
 ### P: Como adiciono novos setores?
@@ -321,5 +321,6 @@ Se a resposta não está aqui:
 ---
 
 **Tem mais dúvidas? Leia a documentação! 📚**
+
 
 
