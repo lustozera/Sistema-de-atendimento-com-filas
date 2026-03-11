@@ -49,7 +49,7 @@ Veja [DESENVOLVIMENTO.md](DESENVOLVIMENTO.md)
 
 ### P: Como reinicio senhas do dia?
 **R:** Vá para http://localhost:3000/admin
-Digite `AGR.Senhas` em "Resetar Todos os Dados"
+Digite `SUA SENHA` em "Resetar Todos os Dados"
 
 ### P: Onde as senhas são salvas?
 **R:** Em `data/fila.db` (banco SQLite)
@@ -321,4 +321,5 @@ Se a resposta não está aqui:
 ---
 
 **Tem mais dúvidas? Leia a documentação! 📚**
+
 
