@@ -5,7 +5,7 @@
 ### 1️⃣ Abra o PowerShell ou CMD na pasta do projeto
 
 ```powershell
-cd C:\Users\lucas.coelho\Documents\fila_atendimento
+cd C:\Users\seu_usuario\Documents\fila_atendimento
 ```
 
 ### 2️⃣ Instale as dependências (PRIMEIRA VEZ APENAS)
@@ -68,7 +68,7 @@ Abra seu navegador (Chrome, Firefox, Edge) e acesse:
 
 Para resetar as senhas no painel admin:
 
-**Senha:** `AGR.Senhas`
+**Senha:** `SUA SENHA`
 
 ⚠️ **IMPORTANTE** ⚠️: Mude esta senha antes de usar em produção!
 
@@ -108,3 +108,4 @@ Leia o arquivo `README.md` para documentação completa.
 ---
 
 **🎉 Pronto para usar!**
+

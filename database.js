@@ -20,13 +20,38 @@ class Database {
         console.error('Erro ao conectar ao banco:', err);
       } else {
         console.log('Banco de dados conectado');
-        this.criarTabelas();
+        // O serialize garante que os comandos de criação rodem em ordem
+        this.db.serialize(() => {
+          this.criarTabelas();
+        });
       }
     });
   }
 
   criarTabelas() {
-    // Tabela de senhas
+    // 1. Tabela de configurações (Necessária para os contadores)
+    this.db.run(`
+      CREATE TABLE IF NOT EXISTS configuracoes (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        chave TEXT UNIQUE NOT NULL,
+        valor TEXT
+      )
+    `, (err) => {
+      if (err) {
+        console.error('Erro ao criar tabela configuracoes:', err);
+      } else {
+        // Inicializar contadores somente após a tabela ser confirmada
+        const prefixos = ['CN', 'CP', 'ON', 'OP', 'FN', 'FP', 'DN', 'DP'];
+        prefixos.forEach((prefixo) => {
+          this.db.run(`
+            INSERT OR IGNORE INTO configuracoes (chave, valor) 
+            VALUES ('contador_${prefixo}', '0')
+          `);
+        });
+      }
+    });
+
+    // 2. Tabela de senhas
     this.db.run(`
       CREATE TABLE IF NOT EXISTS senhas (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -41,16 +66,7 @@ class Database {
       )
     `);
 
-    // Tabela de configurações
-    this.db.run(`
-      CREATE TABLE IF NOT EXISTS configuracoes (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        chave TEXT UNIQUE NOT NULL,
-        valor TEXT
-      )
-    `);
-
-    // Tabela de histórico
+    // 3. Tabela de histórico
     this.db.run(`
       CREATE TABLE IF NOT EXISTS historico (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -64,21 +80,10 @@ class Database {
       )
     `);
 
-    // Inicializar contador por setor se não existir
-    // Contadores por prefixo de senha (setor + tipo)
-    const prefixos = ['CN', 'CP', 'ON', 'OP', 'FN', 'FP', 'DN', 'DP'];
-    prefixos.forEach((prefixo) => {
-      this.db.run(`
-        INSERT OR IGNORE INTO configuracoes (chave, valor) 
-        VALUES ('contador_${prefixo}', '0')
-      `);
-    });
-
-    console.log('Tabelas criadas/verificadas com sucesso');
+    console.log('Tabelas enviadas para criação/verificação');
   }
 
   gerarSenha(setor, tipo) {
-    // Abreviações do setor
     const setorAbrev = {
       'ouvidoria': 'O',
       'financas': 'F',
@@ -86,27 +91,23 @@ class Database {
       'protocolo': 'D'
     };
 
-    // Abreviação do tipo
     const tipoAbrev = tipo === 'preferencial' ? 'P' : 'N';
-
-    // Prefixo combinado: setor + tipo (ex: ON, OP, FN, FP, CN, CP, DN, DP)
     const setorPrefix = setorAbrev[setor] || 'X';
     const prefixo = `${setorPrefix}${tipoAbrev}`;
     const chaveContador = `contador_${prefixo}`;
 
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       this.db.serialize(() => {
-        // Obter contador atual
         this.db.get(
           'SELECT valor FROM configuracoes WHERE chave = ?',
           [chaveContador],
           (err, row) => {
-            let contador;
+            if (err) return reject(err);
 
+            let contador;
             if (row && row.valor !== undefined && row.valor !== null) {
               contador = parseInt(row.valor, 10) + 1;
             } else {
-              // Se não existir contador para este prefixo, inicia em 1
               contador = 1;
               this.db.run(
                 'INSERT OR IGNORE INTO configuracoes (chave, valor) VALUES (?, ?)',
@@ -114,22 +115,20 @@ class Database {
               );
             }
 
-            // Reseta a cada 1000 (3 dígitos)
             contador = contador % 1000;
             const numero = `${prefixo}${String(contador).padStart(3, '0')}`;
 
-            // Atualizar contador
             this.db.run(
               'UPDATE configuracoes SET valor = ? WHERE chave = ?',
               [contador.toString(), chaveContador]
             );
 
-            // Inserir nova senha
             this.db.run(
               `INSERT INTO senhas (numero, setor, tipo, status) 
                VALUES (?, ?, ?, 'aguardando')`,
               [numero, setor, tipo],
               function(err) {
+                if (err) return reject(err);
                 resolve({
                   id: this.lastID,
                   numero: numero,
@@ -263,7 +262,6 @@ class Database {
   resetarSenhas() {
     return new Promise((resolve) => {
       this.db.run('DELETE FROM senhas', () => {
-        // Resetar contadores
         this.db.run('UPDATE configuracoes SET valor = "0" WHERE chave LIKE "contador_%"', () => {
           resolve(true);
         });

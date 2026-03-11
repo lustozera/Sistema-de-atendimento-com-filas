@@ -52,9 +52,10 @@ echo.
 echo   Admin (Gerenciamento):
 echo   http://localhost:3000/admin
 echo.
-echo   Senha de Admin: AGR.Senhas
+echo   Senha de Admin: SUA SENHA
 echo.
 echo Pressione Ctrl+C para parar o servidor
 echo.
 
 node server.js
+

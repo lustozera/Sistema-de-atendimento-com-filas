@@ -31,13 +31,13 @@ $env:PORT=3001; npm start
 ## Uso e Operação
 
 ### P: Qual é a senha do admin?
-**R:** `AGR.Senhas`
+**R:** `SUA SENHA`
 ⚠️ **Mude em produção!**
 
 ### P: Como mudo a senha do admin?
 **R:** Edite `server.js`, linha com:
 ```javascript
-if (senha !== 'AGR.Senhas')
+if (senha !== 'SUA SENHA')
 ```
 
 ### P: Como adiciono novos setores?
@@ -49,7 +49,7 @@ Veja [DESENVOLVIMENTO.md](DESENVOLVIMENTO.md)
 
 ### P: Como reinicio senhas do dia?
 **R:** Vá para http://localhost:3000/admin
-Digite `AGR.Senhas` em "Resetar Todos os Dados"
+Digite `SUA SENHA` em "Resetar Todos os Dados"
 
 ### P: Onde as senhas são salvas?
 **R:** Em `data/fila.db` (banco SQLite)
@@ -321,3 +321,6 @@ Se a resposta não está aqui:
 ---
 
 **Tem mais dúvidas? Leia a documentação! 📚**
+
+
+

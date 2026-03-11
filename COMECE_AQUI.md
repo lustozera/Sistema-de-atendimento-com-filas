@@ -48,7 +48,7 @@ Seu sistema de fila está funcionando!
 
 Para resetar senhas (no painel admin):
 ```
-AGR.Senhas
+SUA SENHA
 ```
 
 ---
@@ -64,3 +64,4 @@ AGR.Senhas
 ---
 
 **Pronto para começar? Abra seu navegador! 🚀**
+

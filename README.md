@@ -80,7 +80,7 @@ O servidor estará disponível em `http://localhost:3000`
 
 ### Painel Administrativo (`/admin`)
 
-1. **Resetar Senhas**: Digite `AGR.Senhas` como senha
+1. **Resetar Senhas**: Digite `SUA SENHA` como senha
 2. **Estatísticas**: Visualiza total de atendimentos e tempo médio
 3. **Histórico**: Tabela com todos os atendimentos do dia
 4. **Personalização**: Altere cor primária e logotipo
@@ -89,7 +89,7 @@ O servidor estará disponível em `http://localhost:3000`
 
 ## 🔒 Segurança
 
-A senha administrativa padrão é: **`AGR.Senhas`**
+A senha administrativa padrão é: **`SUA SENHA`**
 
 ⚠️ **Altere esta senha em produção!**
 
@@ -135,8 +135,8 @@ Os setores disponíveis são:
 
 | Código | Nome | Prefixo Senha |
 |--------|------|---------------|
-| ouvidoria | Ouvidoria | A |
-| financas | Finanças | B |
+| ouvidoria | Ouvidoria | O |
+| financas | Finanças | F |
 | veiculos | Cadastro de Veículos/Empresas | C |
 | protocolo | Protocolar Documentos | D |
 
@@ -161,7 +161,7 @@ O sistema é totalmente responsivo:
 O sistema emite sons em:
 - **Usuário**: Confirmação ao gerar senha
 - **Atendente**: Sinal ao chamar nova senha
-- **Painel**: Notificação ao exibir nova senha
+- **Painel**: Notificação ao exibir nova senha, e fala a senha chamada
 
 Todos os sons são gerados via Web Audio API.
 
@@ -200,18 +200,17 @@ PORT=3001 npm start
 
 ---
 
-## 📝 Licença
-
-Este projeto é de código aberto e pode ser usado livremente.
-
----
-
 ## 👨‍💼 Suporte
 
 Para dúvidas ou problemas, verifique:
 1. Se todas as dependências foram instaladas
 2. Se a porta 3000 está disponível
 3. Se o Node.js está atualizado
+
+
+
+
+
 
 
 
