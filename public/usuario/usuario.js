@@ -115,166 +115,196 @@ function mostrarLoadingImpressao() {
   }
 }
 
+// ============ Loading Impressão ============
+
+function mostrarLoadingImpressao() {
+  const loading = document.getElementById("loading-impressao");
+  if (loading) {
+    loading.classList.remove("hidden");
+  }
+}
+
+function esconderLoadingImpressao() {
+  const loading = document.getElementById("loading-impressao");
+  if (loading) {
+    loading.classList.add("hidden");
+  }
+}
+
 // ============ IMPRIMIR SENHA ============
 
 function imprimirSenha() {
   const dados = JSON.parse(sessionStorage.getItem('ultimaSenha'));
-  
+
   if (!dados) {
     mostraAlerta('Nenhuma senha para imprimir');
     return;
   }
 
-  mostrarLoadingImpressao();
+  // IMPORTANTE:
+  // abre a janela imediatamente no clique para não ser bloqueada
+  const janela = window.open('', '_blank');
 
-  setTimeout(() => {
-    const janela = window.open('', '_blank');
+  if (!janela) {
+    mostraAlerta("Permita popups para imprimir.");
+    return;
+  }
 
-    if (!janela) {
-      mostraAlerta("Permita popups para imprimir.");
-      return;
-    }
+  janela.document.write(`
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Senha</title>
+      <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
 
-    janela.document.write(`
-      <!DOCTYPE html>
-      <html lang="pt-BR">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Senha</title>
-        <style>
-          * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        body {
+          font-family: Arial, sans-serif;
+          background: #fff;
+          width: 58mm;
+          margin: 0 auto;
+          padding: 0;
+        }
+
+        .ticket {
+          width: 58mm;
+          padding: 4mm 3mm;
+          text-align: center;
+          color: #000;
+        }
+
+        .logo {
+          width: 95px;
+          height: 95px;
+          margin: 0 auto 8px;
+          display: block;
+        }
+
+        .titulo {
+          font-size: 12px;
+          font-weight: bold;
+          margin-bottom: 8px;
+          text-transform: uppercase;
+        }
+
+        .numero {
+          font-size: 54px;
+          font-weight: bold;
+          line-height: 1;
+          margin: 8px 0 12px;
+          letter-spacing: 2px;
+        }
+
+        .linha {
+          border-top: 1px dashed #000;
+          margin: 8px 0;
+        }
+
+        .info {
+          font-size: 12px;
+          margin-top: 6px;
+          text-align: center;
+        }
+
+        .info p {
+          margin: 4px 0;
+          word-break: break-word;
+        }
+
+        .label {
+          font-weight: bold;
+        }
+
+        .aviso {
+          margin-top: 8px;
+          font-size: 11px;
+          font-weight: bold;
+        }
+
+        @page {
+          size: 58mm auto;
+          margin: 0;
+        }
+
+        @media print {
+          html, body {
+            width: 58mm;
+            background: #fff;
           }
 
           body {
-            font-family: Arial, sans-serif;
-            background: #fff;
-            width: 58mm;
-            margin: 0 auto;
+            margin: 0;
             padding: 0;
           }
 
           .ticket {
             width: 58mm;
             padding: 4mm 3mm;
-            text-align: center;
-            color: #000;
           }
-
-          .logo {
-            width: 95px;
-            height: 95px;
-            margin: 0 auto 8px;
-            display: block;
-          }
-
-          .titulo {
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-          }
-
-          .numero {
-            font-size: 54px;
-            font-weight: bold;
-            line-height: 1;
-            margin: 8px 0 12px;
-            letter-spacing: 2px;
-          }
-
-          .linha {
-            border-top: 1px dashed #000;
-            margin: 8px 0;
-          }
-
-          .info {
-            font-size: 12px;
-            margin-top: 6px;
-            text-align: center;
-          }
-
-          .info p {
-            margin: 4px 0;
-            word-break: break-word;
-          }
-
-          .label {
-            font-weight: bold;
-          }
-
-          .aviso {
-            margin-top: 8px;
-            font-size: 11px;
-            font-weight: bold;
-          }
-
-          @page {
-            size: 58mm auto;
-            margin: 0;
-          }
-
-          @media print {
-            html, body {
-              width: 58mm;
-              background: #fff;
-            }
-
-            body {
-              margin: 0;
-              padding: 0;
-            }
-
-            .ticket {
-              width: 58mm;
-              padding: 4mm 3mm;
-            }
-          }
-        </style>
-      </head>
-      <body>
-        <div class="ticket">
-          <img src="/images/logo_senha.png" alt="Logo" class="logo">
-          <div class="titulo">Senha de Atendimento</div>
-          <div class="linha"></div>
-          <div class="numero">${dados.numero}</div>
-          <div class="linha"></div>
-          <div class="info">
-            <p><span class="label">Setor:</span> ${dados.setor}</p>
-            <p><span class="label">Tipo:</span> ${dados.tipo}</p>
-            <p><span class="label">Gerada:</span> ${dados.data}</p>
-          </div>
-          <div class="aviso">AGUARDE SER CHAMADO</div>
+        }
+      </style>
+    </head>
+    <body>
+      <div class="ticket">
+        <img src="/images/logo_senha.png" alt="Logo" class="logo">
+        <div class="titulo">Senha de Atendimento</div>
+        <div class="linha"></div>
+        <div class="numero">${dados.numero}</div>
+        <div class="linha"></div>
+        <div class="info">
+          <p><span class="label">Setor:</span> ${dados.setor}</p>
+          <p><span class="label">Tipo:</span> ${dados.tipo}</p>
+          <p><span class="label">Gerada:</span> ${dados.data}</p>
         </div>
+        <div class="aviso">AGUARDE SER CHAMADO</div>
+      </div>
 
-        <script>
-          let jaExecutou = false;
+      <script>
+        let finalizado = false;
 
-          window.onload = function() {
-            window.focus();
-            window.print();
-          };
+        function finalizarImpressao() {
+          if (finalizado) return;
+          finalizado = true;
 
-          window.addEventListener("focus", function () {
-            if (jaExecutou) return;
-            jaExecutou = true;
-
-            if (window.opener) {
-              window.opener.location.href = "/usuario";
+          if (window.opener) {
+            const loading = window.opener.document.getElementById("loading-impressao");
+            if (loading) {
+              loading.classList.remove("hidden");
             }
 
+            setTimeout(() => {
+              window.opener.location.href = "/usuario";
+              window.close();
+            }, 1200);
+          } else {
             window.close();
-          });
-        <\/script>
-      </body>
-      </html>
-    `);
+          }
+        }
 
-    janela.document.close();
-  }, 1200);
+        window.onload = function() {
+          window.focus();
+          window.print();
+        };
+
+        // Quando terminar/cancelar a impressão
+        window.onafterprint = finalizarImpressao;
+
+        // Fallback para navegadores que não disparam bem o afterprint
+        window.addEventListener("focus", function() {
+          setTimeout(finalizarImpressao, 300);
+        });
+      <\/script>
+    </body>
+    </html>
+  `);
+
+  janela.document.close();
 }
 // ============ NOVA SENHA ============
 
