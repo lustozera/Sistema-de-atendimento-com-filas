@@ -17,24 +17,24 @@ Um **sistema web profissional de gerenciamento de filas** para atendimento, pron
 - ✅ `iniciar.bat` - Script de inicialização (Windows)
 
 ### 🎨 Frontend - Interface do Usuário
-- ✅ `public/usuario.html` - HTML da página
-- ✅ `public/usuario.css` - Estilos específicos
-- ✅ `public/usuario.js` - Lógica JavaScript
+- ✅ `public/usuario/usuario.html` - HTML da página
+- ✅ `public/usuario/usuario.css` - Estilos específicos
+- ✅ `public/usuario/usuario.js` - Lógica JavaScript
 
 ### 👨‍💼 Frontend - Interface do Atendente
-- ✅ `public/atendente.html` - HTML da página
-- ✅ `public/atendente.css` - Estilos específicos
-- ✅ `public/atendente.js` - Lógica JavaScript
+- ✅ `public/atendente/atendente.html` - HTML da página
+- ✅ `public/atendente/atendente.css` - Estilos específicos
+- ✅ `public/atendente/atendente.js` - Lógica JavaScript
 
 ### 📺 Frontend - Painel Público
-- ✅ `public/painel.html` - HTML da página
-- ✅ `public/painel.css` - Estilos específicos
-- ✅ `public/painel.js` - Lógica JavaScript
+- ✅ `public/painel/painel.html` - HTML da página
+- ✅ `public/painel/painel.css` - Estilos específicos
+- ✅ `public/painel/painel.js` - Lógica JavaScript
 
 ### ⚙️ Frontend - Painel Administrativo
-- ✅ `public/admin.html` - HTML da página
-- ✅ `public/admin.css` - Estilos específicos
-- ✅ `public/admin.js` - Lógica JavaScript
+- ✅ `public/admin/admin.html` - HTML da página
+- ✅ `public/admin/admin.css` - Estilos específicos
+- ✅ `public/admin/admin.js` - Lógica JavaScript
 
 ### 🎨 Estilos Globais
 - ✅ `public/styles.css` - CSS base e variáveis
@@ -162,15 +162,19 @@ fila_atendimento/
 ├── 📄 RESUMO.md
 └── 📁 public/
     ├── 📄 styles.css
+    ├── � usuario/
     ├── 📄 usuario.html
     ├── 📄 usuario.css
     ├── 📄 usuario.js
+    ├── 📁 atendente/
     ├── 📄 atendente.html
     ├── 📄 atendente.css
     ├── 📄 atendente.js
+    ├── 📁 painel/
     ├── 📄 painel.html
     ├── 📄 painel.css
     ├── 📄 painel.js
+    ├── 📁 admin/
     ├── 📄 admin.html
     ├── 📄 admin.css
     └── 📄 admin.js

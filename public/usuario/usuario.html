@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retirar Senha - Fila de Atendimento</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/usuario/usuario.css">
+</head>
+<body>
+  <div class="container-usuario">
+    <!-- Header com logo -->
+    <header class="header">
+      <div class="logo-area">
+        <h1>Retire sua senha de atendimento</h1>
+      </div>
+    </header>
+
+    <!-- Seção de seleção de setor -->
+    <main class="main-usuario">
+      <div id="selecao-setor" class="step step-active">
+        <h2>Escolha o tipo de atendimento</h2>
+        <div class="botoes-setor">
+          <button class="btn-setor" data-setor="ouvidoria">
+            <span class="icon">📝</span>
+            <span>Ouvidoria</span>
+          </button>
+          <button class="btn-setor" data-setor="financas">
+            <span class="icon">💰</span>
+            <span>Finanças</span>
+          </button>
+          <button class="btn-setor" data-setor="veiculos">
+            <span class="icon">🚗</span>
+            <span>Cadastro de Veículos/<br>Empresas</span>
+          </button>
+          <button class="btn-setor" data-setor="protocolo">
+            <span class="icon">📋</span>
+            <span>Protocolar<br>Documentos</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Seção de seleção de tipo de atendimento -->
+      <div id="selecao-tipo" class="step">
+        <h2>Tipo de Atendimento</h2>
+        <div class="tipo-container">
+          <button class="btn-tipo btn-tipo-normal" data-tipo="normal">
+            <h3>Atendimento Normal</h3>
+            <p>Fila comum</p>
+          </button>
+          <button class="btn-tipo btn-tipo-preferencial" data-tipo="preferencial">
+            <h3>Atendimento Preferencial</h3>
+            <p>Idosos, gestantes e pessoas com deficiência</p>
+          </button>
+          <button class="btn btn-secundario btn-voltar-tipo" onclick="voltarParaSetor()">
+            Voltar
+          </button>
+        </div>
+      </div>
+
+      <!-- Seção de exibição de senha gerada -->
+      <div id="senha-gerada" class="step">
+        <div class="senha-display-container">
+          <div class="senha-card">
+            <div class="senha-grande" id="display-senha">A001</div>
+            <div class="senha-info">
+              <p class="setor-info">
+                <strong>Setor:</strong> <span id="display-setor">-</span>
+              </p>
+              <p class="tipo-info">
+                <strong>Tipo:</strong> <span id="display-tipo">-</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="fila-info">
+            <p>Sua posição na fila:</p>
+            <div class="posicao-badge" id="display-posicao">1</div>
+            <p class="mensagem-aguarde">Aguarde ser chamado no painel</p>
+          </div>
+
+          <div class="acoes-senha">
+            <button class="btn btn-secundario" onclick="imprimirSenha()">
+              🖨️ Imprimir Senha
+            </button>
+            <button class="btn btn-primario" onclick="novarSenha()">
+              Nova Senha
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/usuario/usuario.js"></script>
+</body>
+</html>

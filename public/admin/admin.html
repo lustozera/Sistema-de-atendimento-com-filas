@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Administrativo - Fila de Atendimento</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+  <div class="container-admin">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-area">
+        <h1>⚙️ Painel Administrativo</h1>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-admin">
+      <div class="admin-grid">
+        <!-- Seção de Gerenciamento -->
+        <section class="admin-card">
+          <h2>Gerenciamento de Filas</h2>
+          
+          <div class="admin-section">
+            <h3>Resetar Todos os Dados</h3>
+            <p class="admin-descricao">
+              Limpar todas as senhas do dia e retornar o sistema ao estado inicial. 
+              Esta ação é irreversível.
+            </p>
+            
+            <div class="reset-form">
+              <input 
+                type="password" 
+                id="senha-admin" 
+                placeholder="Digite a senha de administrador"
+                class="input-senha-admin"
+              >
+              <button class="btn btn-perigo btn-grande" onclick="solicitarReset()">
+                🗑️ Resetar Senhas
+              </button>
+            </div>
+            
+            <div class="info-important">
+              <strong>⚠️ Atenção:</strong> Você precisa da senha de administrador para resetar as filas.
+            </div>
+          </div>
+        </section>
+
+        <!-- Estatísticas -->
+        <section class="admin-card">
+          <h2>Estatísticas do Dia</h2>
+          
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Total de Senhas</span>
+              <span class="stat-valor" id="total-senhas">0</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Atendidas</span>
+              <span class="stat-valor" id="total-atendidas">0</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Tempo Médio</span>
+              <span class="stat-valor" id="tempo-medio">0m</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Histórico -->
+        <section class="admin-card admin-card-full">
+          <h2>Histórico de Atendimentos</h2>
+          
+          <div class="export-buttons" style="margin-bottom: 20px;">
+            <button class="btn btn-pequeno" onclick="exportarCSV()">
+              📊 Exportar CSV
+            </button>
+            <button class="btn btn-pequeno" onclick="exportarXLS()">
+              📈 Exportar Excel
+            </button>
+          </div>
+          
+          <div class="historico-admin-container">
+            <table class="historico-table">
+              <thead>
+                <tr>
+                  <th>Senha</th>
+                  <th>Setor</th>
+                  <th>Tipo</th>
+                  <th>Mesa</th>
+                  <th>Tempo de Espera</th>
+                  <th>Tempo de Atendimento</th>
+                </tr>
+              </thead>
+              <tbody id="historico-tbody">
+                <tr>
+                  <td colspan="6" style="text-align: center; color: var(--cor-texto-secundario);">
+                    Nenhum atendimento registrado
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Configurações -->
+        <section class="admin-card">
+          <h2>Configurações</h2>
+          
+          <div class="config-item">
+            <label>Cor Primária</label>
+            <div class="color-input-group">
+              <input type="color" id="cor-primaria" value="#2563eb">
+              <button class="btn btn-pequeno" onclick="aplicarCor()">Aplicar</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Link Rápido -->
+        <section class="admin-card">
+          <h2>Links da Aplicação</h2>
+          
+          <div class="links-grid">
+            <a href="/usuario" target="_blank" class="btn btn-primario">Usuário</a>
+            <a href="/atendente" target="_blank" class="btn btn-primario">Atendente</a>
+            <a href="/painel" target="_blank" class="btn btn-primario">Painel Público</a>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

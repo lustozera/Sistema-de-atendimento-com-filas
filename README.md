@@ -105,14 +105,18 @@ fila_atendimento/
 ├── server.js                 # Servidor principal
 ├── database.js              # Gerenciador de banco de dados
 ├── public/                  # Arquivos estáticos
-│   ├── usuario.html         # Interface do usuário
-│   ├── usuario.css/js
-│   ├── atendente.html       # Interface do atendente
-│   ├── atendente.css/js
-│   ├── painel.html          # Painel público
-│   ├── painel.css/js
-│   ├── admin.html           # Painel administrativo
-│   ├── admin.css/js
+│   ├── usuario/              # Interface do usuário
+│   │   ├── usuario.html
+│   │   ├── usuario.css/js
+│   ├── atendente/            # Interface do atendente
+│   │   ├── atendente.html
+│   │   ├── atendente.css/js
+│   ├── painel/               # Painel público
+│   │   ├── painel.html
+│   │   ├── painel.css/js
+│   ├── admin/                # Painel administrativo
+│   │   ├── admin.html
+│   │   ├── admin.css/js
 │   └── styles.css           # Estilos globais
 └── data/                    # Banco de dados SQLite (criado automaticamente)
 ```

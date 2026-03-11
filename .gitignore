@@ -1,15 +1,39 @@
+# Dependencies
 node_modules/
-data/
-.env
-.env.local
-*.log
-npm-debug.log*
-.DS_Store
-.vscode/
-.idea/
 package-lock.json
 yarn.lock
+
+# Environment
+.env
+.env.local
+.env.*.json
+
+# Logs
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# Data and databases
+data/
+base_dados_atendimento/
+*.csv
+
+# OS
+.DS_Store
+.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build
 dist/
 build/
 .netlify
-.env.*.json
+
+# Temporary
+Untitled/
+.temp/
+tmp/
