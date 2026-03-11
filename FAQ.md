@@ -31,7 +31,7 @@ $env:PORT=3001; npm start
 ## Uso e Operação
 
 ### P: Qual é a senha do admin?
-**R:** `AGR.Senhas`
+**R:** `SUA SENHA`
 ⚠️ **Mude em produção!**
 
 ### P: Como mudo a senha do admin?
@@ -321,3 +321,4 @@ Se a resposta não está aqui:
 ---
 
 **Tem mais dúvidas? Leia a documentação! 📚**
+
