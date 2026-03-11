@@ -30,27 +30,27 @@ const mesasAtivas = new Map(); // { mesa: setor, socketId: id }
 
 // Rotas - Página inicial
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'usuario.html'));
+  res.sendFile(path.join(__dirname, 'public', 'usuario', 'usuario.html'));
 });
 
 // Página de retirada de senha
 app.get('/usuario', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'usuario.html'));
+  res.sendFile(path.join(__dirname, 'public', 'usuario', 'usuario.html'));
 });
 
 // Página do atendente (login necessário)
 app.get('/atendente', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'atendente.html'));
+  res.sendFile(path.join(__dirname, 'public', 'atendente', 'atendente.html'));
 });
 
 // Painel público
 app.get('/painel', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'painel.html'));
+  res.sendFile(path.join(__dirname, 'public', 'painel', 'painel.html'));
 });
 
 // Painel administrativo
 app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+  res.sendFile(path.join(__dirname, 'public', 'admin', 'admin.html'));
 });
 
 // ============ API ENDPOINTS ============
