@@ -135,8 +135,8 @@ Os setores disponíveis são:
 
 | Código | Nome | Prefixo Senha |
 |--------|------|---------------|
-| ouvidoria | Ouvidoria | A |
-| financas | Finanças | B |
+| ouvidoria | Ouvidoria | O |
+| financas | Finanças | F |
 | veiculos | Cadastro de Veículos/Empresas | C |
 | protocolo | Protocolar Documentos | D |
 
@@ -214,5 +214,6 @@ Para dúvidas ou problemas, verifique:
 3. Se o Node.js está atualizado
 
 ---
+
 
 
