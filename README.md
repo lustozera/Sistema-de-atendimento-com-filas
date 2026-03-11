@@ -123,7 +123,21 @@ fila_atendimento/
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## � Documentação Adicional
+Os detalhes e guias completos também estão disponíveis na pasta `docs`:
+
+- [COMECE_AQUI](docs/COMECE_AQUI.md) – introdução e primeiros passos
+- [INICIO_RAPIDO](docs/INICIO_RAPIDO.md) – guia rápido de instalação e uso
+- [DESENVOLVIMENTO](docs/DESENVOLVIMENTO.md) – orientações para desenvolvedores
+- [TESTES](docs/TESTES.md) – como testar o sistema
+- [FAQ](docs/FAQ.md) – perguntas frequentes
+- [RESUMO](docs/RESUMO.md) – visão geral do projeto
+
+Faça referência a esses arquivos para obter informações mais detalhadas.
+
+---
+
+## �🛠️ Tecnologias Utilizadas
 
 - **Backend**: Node.js + Express
 - **Banco de Dados**: SQLite3
