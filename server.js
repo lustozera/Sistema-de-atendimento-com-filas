@@ -286,7 +286,7 @@ app.post('/api/liberar-mesa', (req, res) => {
 app.post('/api/resetar-senhas', async (req, res) => {
   const { senha } = req.body;
 
-  if (senha !== 'AGR.Senhas') {
+  if (senha !== 'SUA SENHA') {
     return res.status(401).json({ 
       erro: 'Senha incorreta. Operação não permitida.' 
     });
@@ -441,3 +441,4 @@ server.listen(PORT, () => {
   console.log(`Usuário: http://localhost:${PORT}/usuario`);
   console.log(`Admin: http://localhost:${PORT}/admin`);
 });
+
