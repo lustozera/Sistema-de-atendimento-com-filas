@@ -80,7 +80,7 @@ O servidor estará disponível em `http://localhost:3000`
 
 ### Painel Administrativo (`/admin`)
 
-1. **Resetar Senhas**: Digite `AGR.Senhas` como senha
+1. **Resetar Senhas**: Digite `SUA SENHA` como senha
 2. **Estatísticas**: Visualiza total de atendimentos e tempo médio
 3. **Histórico**: Tabela com todos os atendimentos do dia
 4. **Personalização**: Altere cor primária e logotipo
@@ -215,4 +215,4 @@ Para dúvidas ou problemas, verifique:
 
 ---
 
-**Desenvolvido com ❤️**
+
