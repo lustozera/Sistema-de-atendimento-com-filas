@@ -2,49 +2,62 @@
 
 Sistema completo e moderno para gerenciar filas de atendimento com múltiplas interfaces: usuário, atendente e painel público.
 
-## 🎯 Características
+## Características
 
-- ✅ **Interface do Usuário**: Retirada de senha com seleção de setor e tipo de atendimento
-- ✅ **Painel do Atendente**: Chamada de próxima senha, senha específica, pular e finalizar
-- ✅ **Painel Público**: Exibição em TV/monitor com histórico de senhas chamadas
-- ✅ **Painel Administrativo**: Reset de senhas, estatísticas e personalização
-- ✅ **Responsivo**: Funciona em desktop, tablet e mobile
-- ✅ **Atualização em Tempo Real**: Socket.IO para sincronização instantânea
-- ✅ **Autossons**: Som de confirmação ao chamar senhas
-- ✅ **Impressão de Senha**: Opção para imprimir comprovante
+- Interface do Usuário: Retirada de senha com seleção de setor e tipo de atendimento
+- Painel do Atendente: Chamada de próxima senha, senha específica, pular e finalizar
+- Painel Público: Exibição em TV/monitor com histórico de senhas chamadas
+- Painel Administrativo: Reset de senhas, estatísticas e personalização
+- Responsivo: Funciona em desktop, tablet e mobile
+- Atualização em Tempo Real: Socket.IO para sincronização instantânea
+- Autossons: Som de confirmação ao chamar senhas
+- Impressão de Senha: Opção para imprimir comprovante
 
-## 🚀 Instalação
+---
+
+## Instalação
 
 ### Requisitos
+
 - Node.js (versão 14+)
 - npm ou yarn
 
 ### Passos
 
-1. **Clonar ou extrair o repositório**
+1. Clonar ou extrair o repositório
+
 ```bash
 cd fila_atendimento
 ```
 
-2. **Instalar dependências**
+2. Instalar dependências
+
 ```bash
 npm install
 ```
 
-3. **Iniciar o servidor**
+3. Iniciar o servidor
+
 ```bash
 npm start
 ```
 
-O servidor estará disponível em `http://localhost:3000`
+O servidor estará disponível em:
 
-4. **Acessar as interfaces**
-- 👤 **Usuário**: http://localhost:3000/usuario
-- 👨‍💼 **Atendente**: http://localhost:3000/atendente
-- 📺 **Painel Público**: http://localhost:3000/painel
-- ⚙️ **Admin**: http://localhost:3000/admin
+```txt
+http://localhost:3000
+```
 
-## 📋 Guia de Uso
+4. Acessar as interfaces
+
+- Usuário: `http://localhost:3000/usuario`
+- Atendente: `http://localhost:3000/atendente`
+- Painel Público: `http://localhost:3000/painel`
+- Admin: `http://localhost:3000/admin`
+
+---
+
+## Guia de Uso
 
 ### Interface do Usuário (`/usuario`)
 
@@ -61,6 +74,8 @@ O servidor estará disponível em `http://localhost:3000`
 3. Uma senha será gerada automaticamente
 4. Você pode imprimir a senha ou retirar uma nova
 
+---
+
 ### Interface do Atendente (`/atendente`)
 
 1. Selecione seu setor e número de mesa
@@ -71,12 +86,16 @@ O servidor estará disponível em `http://localhost:3000`
    - **Pular Senha**: Retorna para fila
    - **Finalizar Atendimento**: Marca como concluído
 
+---
+
 ### Painel Público (`/painel`)
 
 - Exibe em grande destaque a senha sendo atendida e a mesa
 - Mostra histórico das últimas 10 senhas chamadas
 - Espaço para avisos e informações institucionais
 - Atualiza em tempo real
+
+---
 
 ### Painel Administrativo (`/admin`)
 
@@ -87,24 +106,28 @@ O servidor estará disponível em `http://localhost:3000`
 
 ---
 
-## 🔒 Segurança
+## Segurança
 
-A senha administrativa padrão é: **`SUA SENHA`**
+A senha administrativa padrão é:
 
-⚠️ **Altere esta senha em produção!**
+```txt
+SUA SENHA
+```
+
+Altere esta senha em produção.
 
 Para mudar a senha, edite o arquivo `server.js` na linha de validação do reset.
 
 ---
 
-## 📊 Estrutura do Projeto
+## Estrutura do Projeto
 
-```
+```txt
 fila_atendimento/
 ├── package.json              # Dependências
 ├── server.js                 # Servidor principal
-├── database.js              # Gerenciador de banco de dados
-├── public/                  # Arquivos estáticos
+├── database.js               # Gerenciador de banco de dados
+├── public/                   # Arquivos estáticos
 │   ├── usuario/              # Interface do usuário
 │   │   ├── usuario.html
 │   │   ├── usuario.css/js
@@ -117,27 +140,28 @@ fila_atendimento/
 │   ├── admin/                # Painel administrativo
 │   │   ├── admin.html
 │   │   ├── admin.css/js
-│   └── styles.css           # Estilos globais
-└── data/                    # Banco de dados SQLite (criado automaticamente)
+│   └── styles.css            # Estilos globais
+└── data/                     # Banco de dados SQLite (criado automaticamente)
 ```
 
 ---
 
-## � Documentação Adicional
+## Documentação Adicional
+
 Os detalhes e guias completos também estão disponíveis na pasta `docs`:
 
-- [COMECE_AQUI](docs/COMECE_AQUI.md) – introdução e primeiros passos
-- [INICIO_RAPIDO](docs/INICIO_RAPIDO.md) – guia rápido de instalação e uso
-- [DESENVOLVIMENTO](docs/DESENVOLVIMENTO.md) – orientações para desenvolvedores
-- [TESTES](docs/TESTES.md) – como testar o sistema
-- [FAQ](docs/FAQ.md) – perguntas frequentes
-- [RESUMO](docs/RESUMO.md) – visão geral do projeto
+- `docs/COMECE_AQUI.md` – introdução e primeiros passos
+- `docs/INICIO_RAPIDO.md` – guia rápido de instalação e uso
+- `docs/DESENVOLVIMENTO.md` – orientações para desenvolvedores
+- `docs/TESTES.md` – como testar o sistema
+- `docs/FAQ.md` – perguntas frequentes
+- `docs/RESUMO.md` – visão geral do projeto
 
 Faça referência a esses arquivos para obter informações mais detalhadas.
 
 ---
 
-## �🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Backend**: Node.js + Express
 - **Banco de Dados**: SQLite3
@@ -147,45 +171,48 @@ Faça referência a esses arquivos para obter informações mais detalhadas.
 
 ---
 
-## ⚙️ Configuração de Setores
+## Configuração de Setores
 
 Os setores disponíveis são:
 
-| Código | Nome | Prefixo Senha |
-|--------|------|---------------|
-| ouvidoria | Ouvidoria | O |
-| financas | Finanças | F |
-| veiculos | Cadastro de Veículos/Empresas | C |
-| protocolo | Protocolar Documentos | D |
+| Código     | Nome                              | Prefixo Senha |
+| ----------- | --------------------------------- | -------------- |
+| ouvidoria  | Ouvidoria                         | O              |
+| financas   | Finanças                          | F              |
+| veiculos   | Cadastro de Veículos/Empresas     | C              |
+| protocolo  | Protocolar Documentos             | D              |
 
 Para adicionar novos setores, edite:
+
 1. `usuario.html` - Adicione novo botão
 2. `database.js` - Adicione novo contador
 3. `server.js` - Adicione nova rota/lógica se necessário
 
 ---
 
-## 📱 Responsividade
+## Responsividade
 
 O sistema é totalmente responsivo:
+
 - **Desktop**: Layout completo com todos os elementos
 - **Tablet**: Adaptado para telas médias
 - **Mobile**: Interface otimizada para toque
 
 ---
 
-## 🔊 Sons
+## Sons
 
 O sistema emite sons em:
+
 - **Usuário**: Confirmação ao gerar senha
 - **Atendente**: Sinal ao chamar nova senha
-- **Painel**: Notificação ao exibir nova senha, e fala a senha chamada
+- **Painel**: Notificação ao exibir nova senha e fala da senha chamada
 
 Todos os sons são gerados via Web Audio API.
 
 ---
 
-## 🎨 Personalização
+## Personalização
 
 ### Cores
 
@@ -197,39 +224,32 @@ Adicione a URL do logotipo no painel administrativo. A imagem será exibida no h
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Porta já está em uso
+
 ```bash
-# Usar outra porta
 PORT=3001 npm start
 ```
 
 ### Banco de dados corrompido
-```bash
-# Deletar banco e começar do zero
-# (Remova a pasta 'data')
+
+```txt
+Remova a pasta 'data' para recriar o banco automaticamente.
 ```
 
 ### Socket.IO não está conectando
+
 - Verifique se o servidor está rodando
 - Limpe o cache do navegador
 - Confira se não há firewall bloqueando
 
 ---
 
-## 👨‍💼 Suporte
+## Suporte
 
 Para dúvidas ou problemas, verifique:
+
 1. Se todas as dependências foram instaladas
 2. Se a porta 3000 está disponível
 3. Se o Node.js está atualizado
-
-
-
-
-
-
-
-
-
